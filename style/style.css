@@ -1,0 +1,60 @@
+:root {
+  --white          : #ffffff;
+  --text           : #040414;
+  --primary        : #D3369F;
+  --primary-light  : rgba(247, 220, 238, 0.8);
+  --primary-lighter: rgba(252, 243, 249, 0.8);
+}
+@font-face {
+  font-family: Ubuntu;
+  src        : local('Ubuntu Regular'), local('Ubuntu-Regular'), url(../fonts/ubuntu.woff2) format('woff2'), url(../fonts/ubuntu.woff) format('woff');
+  font-weight: 400;
+  font-style : normal
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src        : local('Ubuntu Medium'), local('Ubuntu-Medium'), url(../fonts/ubuntumedium.woff2) format('woff2'), url(../fonts/ubuntumedium.woff) format('woff');
+  font-weight: 500;
+  font-style : normal
+}
+
+@font-face {
+  font-family: Ubuntu;
+  src        : local('Ubuntu Bold'), local('Ubuntu-Bold'), url(../fonts/ubuntubold.woff2) format('woff2'), url(../fonts/ubuntubold.woff) format('woff');
+  font-weight: 700;
+  font-style : normal
+}
+
+body {
+  position: relative;
+  margin          : 0;
+  padding         : 0;
+  min-height: 100vh;
+  font-family     : Ubuntu, sans-serif;
+  font-weight     : 500;
+  font-size       : 20px;
+}
+
+* {
+  margin : 0;
+  padding: 0;
+}
+
+main {
+  position : relative;
+  max-width: 1440px;
+  margin   : 0 auto;
+  padding  : 0 140px;
+}
+
+header {
+  text-align: center;
+}
+
+form,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
