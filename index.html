@@ -4,14 +4,77 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forms</title>
+	<link rel="shortcut icon" href="/img/favicon.ico"/>
 	<link rel="stylesheet" href="/style/normalise.css" />
 	<link rel="stylesheet" href="/style/style.css" />
 </head>
 
 <body>
+	<header>
+		<h1> PHPMailer</h1>
+		<h2>Отправка писем и файлов на почту</h2>
+	</header>
+	<main>
+		<div class="message">
+			<div class="message__text"></div>
+		</div>
+		<form action="send.php" enctype="multipart/form-data" class="form" method="POST" id="form" autocomplete>
 
+			<div class="feedback__inner">
+				<label class="feedback__label" for="name" data-label="✱">Имя</label>
+				<input class="feedback__input req" type="text" name="name" id="name">
+				<span class="error-label"></span>
+			</div>
+
+			<div class="feedback__inner">
+				<label class="feedback__label" for="email" data-label="✱">Email</label>
+				<input class="feedback__input req email" type="text" name="email" id="email">
+				<span class="error-label error-label-mail"></span>
+			</div>
+
+			<div class="feedback__inner feedback-textarea">
+				<label class="feedback-textarea__text">Оставьте сообщение</label>
+				<textarea class="feedback-textarea__input" name="text"></textarea>
+			</div>
+
+			<div class="form__text">Прикрепить файл</div>
+			<div class="feedback__inner feedback-file">
+				</label>
+				<div class="feedback-file__photo feedback-photo">
+					<div class="feedback-photo__img">
+						<img class="input__file-icon" src="/img/icon.png" width="25">
+						<span>Выберите файл</span>
+					</div>
+				</div>
+				<input class="input input__file" type="file" name="myfile[]" multiple id="myfile">
+				<div class="feedback-file__clean" id="clear">
+					<svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M15.2983 2.65842C15.7545 2.20342 15.7545 1.46375 15.2983 1.00875C14.8433 0.552584 14.1048 0.552584 13.6487 1.00875L7.90401 6.75342L2.15817 1.00875C1.70317 0.552584 0.963507 0.552584 0.508507 1.00875C0.0523401 1.46375 0.0523401 2.20342 0.508507 2.65842L6.25317 8.40425L0.508507 14.1489C0.0523401 14.6051 0.0523401 15.3436 0.508507 15.7986C0.963507 16.2548 1.70317 16.2548 2.15817 15.7986L7.90401 10.0539L13.6487 15.7986C14.1048 16.2548 14.8433 16.2548 15.2983 15.7986C15.7545 15.3436 15.7545 14.6051 15.2983 14.1489L9.55367 8.40425L15.2983 2.65842Z"
+							fill="#040414" />
+					</svg>
+				</div>
+			</div>
+
+			<div class="feedback-file__name"></div>
+
+			<input class="form__button" value="Отправить" type="submit">
+
+			<div class="feedback-consent">
+				<label class="feedback-details">
+					<input class="feedback-details__input req" id="input-checkbox" type="checkbox"
+						name="consent" checked/>
+					<span class="feedback-details__span"></span>
+					<span>Я согласен на обработку моих персональных данных согласно <a href="policy.html"
+						target="_blank">условиям</a></span>
+				</label>
+			</div>
+			<span class="error-label-checkbox">согласие на обработку обязательно для отправки
+				данных</span>
+		</form>
+	</main>
 </body>
-
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 <script src="/js/index.js"></script>
 
 </html>
