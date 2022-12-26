@@ -5,6 +5,7 @@
   --primary-light  : rgba(247, 220, 238, 0.8);
   --primary-lighter: rgba(252, 243, 249, 0.8);
 }
+
 @font-face {
   font-family: Ubuntu;
   src        : local('Ubuntu Regular'), local('Ubuntu-Regular'), url(../fonts/ubuntu.woff2) format('woff2'), url(../fonts/ubuntu.woff) format('woff');
@@ -43,11 +44,19 @@ body {
   padding: 0;
 }
 
+main {
+  max-width      : 1440px;
+  margin         : 0 auto 50px;
+  display        : flex;
+  padding        : 0 140px;
+  align-items    : flex-start;
+  justify-content: center;
+  gap            : 50px;
+}
+
 section {
-  position : relative;
-  max-width: 1440px;
-  margin   : 0 auto 100px;
-  padding  : 0 140px;
+  position: relative;
+  width   : 48%;
 }
 
 header {
@@ -63,16 +72,24 @@ textarea {
 a {
   text-decoration: none;
 }
-
+.policy{
+  height: calc(100vh - 104px);
+  min-height: auto;
+  max-width: 80%;
+  margin: 50px auto;
+  border   : 2px solid var(--primary-light);
+}
 .policy__text {
   position : absolute;
+  padding: 200px 100px;
+  width:  calc(95% - 200px);
   top      : 50%;
   left     : 50%;
   transform: translate(-50%, -50%);
   animation: blinker 0.5s linear infinite;
 }
 
-.policy:hover {
+.policy__text.active{
   animation: none;
 }
 
@@ -92,8 +109,9 @@ a {
 
 h1 {
   max-width: 250px;
-  margin   : 50px auto;
-  cursor: pointer;
+  padding  : 50px 0;
+  margin:  0 auto;
+  cursor   : pointer;
 }
 
 
@@ -105,26 +123,29 @@ h1 {
 .h1 span.smoke {
   animation: smoke 1.5s linear forwards;
 }
+
 @keyframes smoke {
-   0% {
-    opacity: 0;
-    filter: blur(20px);
+  0% {
+    opacity  : 0;
+    filter   : blur(20px);
     transform: translateX(-200px) translateY(100px) rotate(720deg) scale(4);
   }
 
   100% {
-    opacity: 1;
-    filter: blur(0px);
+    opacity  : 1;
+    filter   : blur(0px);
     transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
   }
 }
-.inner-title{
+
+.inner-title {
   text-align: center;
 }
+
 .h2 {
-  margin-top             : 20px;
   position               : relative;
   display                : inline-block;
+  height                 : 28px;
   color                  : var(--text);
   overflow               : hidden;
   background             : linear-gradient(to right, var(--primary), var(--primary) 50%, var(--text) 50%);
@@ -214,7 +235,7 @@ h1 {
 .feedback__label {
   display     : block;
   position    : absolute;
-  top     : 22px;
+  top         : 22px;
   padding-left: 22px;
   left        : 16px;
   transition  : transform 0.3s ease;
@@ -237,7 +258,8 @@ h1 {
 }
 
 .filled,
-.focus {
+.focus ,
+.mouse{
   transform  : translate3d(0, -120%, 0);
   font-size  : 12px;
   line-height: 16px;
@@ -245,7 +267,8 @@ h1 {
 }
 
 .filled::before,
-.focus::before {
+.focus::before,
+.mouse::before {
   left: 10px;
 }
 
@@ -255,7 +278,7 @@ input[type=file] {
   opacity : 0;
   top     : 0;
   bottom  : 0;
-  width   : 50%;
+  width   : 100%;
   z-index : 2;
   cursor  : pointer;
 }
@@ -269,6 +292,7 @@ input[type=file] {
   border          : none;
   background-color: var(--primary-lighter);
   z-index         : 2;
+  cursor: pointer;
 }
 
 .feedback-file__name {
@@ -451,4 +475,51 @@ input[type=file] {
   visibility: visible;
   opacity   : 1;
   transition: opacity 0.4s ease;
+}
+.error-label-tg{
+  position  : absolute;
+  bottom    : 5px;
+  right     : 5px;
+  font-size : 12px;
+  color     : var(--primary);
+}
+@media (max-width:1300px) {
+  main {
+    padding       : 0 50px;
+  }
+}
+
+
+@media (max-width:960px) {
+  body {
+    font-size       : 18px;
+  }
+  main {
+    flex-direction: column;
+    padding       : 0 30px;
+  }
+
+  section {
+    width: 100%;
+  }
+  .feedback-photo__img {
+    font-size  : 16px;
+  }
+}
+
+
+@media (max-width:380px) {
+  body,
+  .form__button {
+    font-size       : 16px;
+  }
+  main {
+    padding       : 0 15px;
+  }
+  .feedback-photo__img {
+    font-size  : 14px;
+  }
+  .form {
+    padding: 10px;
+  }
 }
